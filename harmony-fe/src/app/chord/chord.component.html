@@ -1,0 +1,6 @@
+<div #chordContainer class="chord-container" >
+    <span (click)="showDiagram(index)" (click)="getWith(chordContainer)" >{{chord?.symbol}}</span>
+    <!-- (chordDiagramIsVisible$ | async).isVisible && (chordDiagramIsVisible$ | async).symbolRef == chord?.symbol -->
+    <app-chord-diagram *ngIf="(chordDiagramIsVisible$ | async).isVisible && (chordDiagramIsVisible$ | async).index == index" [chord]="chord" [parentWith]="componentWith"></app-chord-diagram>
+</div>
+

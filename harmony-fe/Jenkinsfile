@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    tools {nodejs "node"}
+
+    stages {
+
+        stage('Dependence Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'cd dist/harmony-fe && tar -zcvf ../../build.tar.gz *'
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "aws-harmony-server",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: "build.tar.gz",
+                                    removePrefix: "",
+                                    remoteDirectory: "/home/ubuntu",
+                                    execCommand: "sudo rm -rf /var/www/html/* && sudo tar -C /var/www/html/ -xzvf /home/ubuntu/build.tar.gz && sudo service nginx restart"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
+    }
+}

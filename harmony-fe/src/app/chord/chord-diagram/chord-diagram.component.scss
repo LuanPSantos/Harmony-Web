@@ -1,0 +1,439 @@
+
+
+$chrod-diagram-absolute-container-width: 120.0px;
+$chrod-diagram-absolute-container-height: 200.0px;
+$chrod-diagram-absolute-container-padding: 18px;
+
+$fretboard-offset: 20px;
+$fretboard-width: $chrod-diagram-absolute-container-width - $fretboard-offset;
+$fretboard-height: 100%;
+
+
+$nut-height: 30px;
+$fretboard-bottom-height: 20px;
+
+$fretboard-fret-height: 4px;
+$fretboard-space: calc(#{$fretboard-height} - #{$nut-height} - #{$fretboard-bottom-height});
+$fret-space: calc(#{$fretboard-space} / 5);
+
+$fretboard-string-width: 2px;
+$string-space: calc(#{$fretboard-width} / 5);
+
+$note-size: 20px;
+$border-size: 1px;
+$note-line-height: $note-size;
+
+$playable-string-icon-size: 16px;
+
+$arrow-button-size: 24px;
+
+
+.close-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 3;
+    cursor: pointer;
+    background-color: #c2185b;
+    border-radius: 50%;
+    color: #fff;
+    font-size: small;
+    line-height: 24px;
+    text-align: center;
+    
+}
+
+// arrows
+
+.arrow-button {
+    height: $arrow-button-size;
+    display: inline-block;
+    position: absolute;
+    z-index: 3;
+    top: calc(#{$fretboard-height} / 2 - #{$arrow-button-size} / 2);
+}
+
+.arrow-button-back {
+    left: calc(-1 * #{$arrow-button-size} / 4);
+}
+
+.arrow-button-next {
+    right: calc(-1 * #{$arrow-button-size} / 4);
+}
+
+.arrow-button:hover {
+    cursor: pointer;
+    color: #c2185b;
+}
+
+// Container
+
+.chrod-diagram-absolute-container {
+    width: $chrod-diagram-absolute-container-width;
+    height: $chrod-diagram-absolute-container-height;
+    display: block;
+    position: absolute;
+    top: calc(-1 * (#{$chrod-diagram-absolute-container-height} + 3 * #{$chrod-diagram-absolute-container-padding}));
+    z-index: 1;
+    text-align: initial;
+    background-color: #fff;
+    border-radius: 6px;
+    padding-top: calc(2 * #{$chrod-diagram-absolute-container-padding});
+    padding-left: $chrod-diagram-absolute-container-padding;
+    padding-right: calc(2 * #{$chrod-diagram-absolute-container-padding});
+    padding-bottom: $chrod-diagram-absolute-container-padding;
+}
+
+.chord-diagram-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fretboard-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fretboard {
+    position: relative;
+    width: $fretboard-width;
+    height: $fretboard-height;
+    left: $fretboard-offset;
+}
+
+// nut
+
+.nut {
+    position: absolute;
+    width: calc(100% + #{$fretboard-string-width});
+    height: $nut-height;
+    background-color: #303030;
+    top: 0;
+    left: calc(#{$fretboard-string-width} / 2 * -1);
+    z-index: 2;
+}
+
+.no-nut {
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 60%);
+}
+
+// freatboard bottom
+
+.fretboard-bottom {
+    position: absolute;
+    width: calc(100% + #{$fretboard-string-width});
+    height: $fretboard-bottom-height;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 20%);
+    bottom: 0;
+    left: calc(#{$fretboard-string-width} / 2 * -1);
+}
+
+// Fretboard Fret
+
+.fretboard-fret {
+    position: absolute;
+    height: $fretboard-fret-height;
+    background-color: #303030;
+    width: 100%;
+}
+
+.fret-position-0 {
+    top: calc(0 * #{$fret-space} - #{$fretboard-fret-height} / 2 + #{$nut-height})
+}
+
+.fret-position-1 {
+    top: calc(1 * #{$fret-space} - #{$fretboard-fret-height} / 2 + #{$nut-height})
+}
+
+.fret-position-2 {
+    top: calc(2 * #{$fret-space} - #{$fretboard-fret-height} / 2 + #{$nut-height})
+}
+
+.fret-position-3 {
+    top: calc(3 * #{$fret-space} - #{$fretboard-fret-height} / 2 + #{$nut-height})
+}
+
+.fret-position-4 {
+    top: calc(4 * #{$fret-space} - #{$fretboard-fret-height} / 2 + #{$nut-height})
+}
+
+// Fretboard String Position
+
+.fretboard-string {
+    position: absolute;
+    width: $fretboard-string-width;
+    background-color: #303030;
+    height: 100%;
+}
+
+.string-position-E6 {
+    left: calc(0 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+.string-position-A5 {
+    left: calc(1 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+.string-position-D4 {
+    left: calc(2 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+.string-position-G3 {
+    left: calc(3 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+.string-position-B2 {
+    left: calc(4 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+.string-position-E1 {
+    left: calc(5 * #{$string-space} - #{$fretboard-string-width} / 2);
+}
+
+// Start fret number
+
+.startfret-number-ref {
+    width: $note-size;
+    height: $note-size;
+    position: absolute;
+    line-height: $note-size;
+    left: calc(-1 * #{$string-space}); // 3/4 do tamanho do espaço entre cordas
+}
+
+.startfret-number-ref-position-1 {
+    top: calc(0 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.startfret-number-ref-position-2 {
+    top: calc(1 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.startfret-number-ref-position-3 {
+    top: calc(2 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.startfret-number-ref-position-4 {
+    top: calc(3 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+// grade 
+
+.grade {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    top: calc(-3 * #{$nut-height} / 2 + #{$note-size});
+    font-size: large;
+    color: #303030;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+// note
+
+.note {
+    background-color: #303030;
+    position: absolute; 
+    display: block;   
+    width: $note-size;
+    height: $note-size;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 3;
+
+    div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .label {
+            position: relative; 
+            line-height: $note-line-height;
+            color: #fff;
+            font-size: xx-small;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .label:hover {
+            cursor: pointer;
+        }
+
+        .label:hover ~ .background-style {
+            border: $border-size solid #303030;
+        }
+
+        .background-style {
+            position: absolute; 
+            display: block;   
+            width: calc(#{$note-size} - 4* #{$border-size});
+            height: calc(#{$note-size} - 4* #{$border-size});
+            top: $border-size;
+            left: $border-size;
+            border-radius: 50%;
+            border: $border-size solid #fff;
+        }
+    }
+} 
+
+.note-color-UNNAMED {
+    background-color: #303030;
+}
+
+.note-color-FUNDAMENTAL {
+    background-color:#8c0032;
+}
+
+.note-color-FIFTH {
+    background-color:#fa5788;
+}
+
+.note-color-THIRD {
+    background-color: #c2185b;
+}
+
+.note-color-SEVENTH {
+    background-color:#ff95b5;
+}
+
+.note-string-position-E6 {
+    left: calc(0 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-string-position-A5 {
+    left: calc(1 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-string-position-D4 {
+    left: calc(2 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-string-position-G3 {
+    left: calc(3 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-string-position-B2 {
+    left: calc(4 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-string-position-E1 {
+    left: calc(5 * #{$string-space} - #{$note-size} / 2);
+}
+
+.note-fret-position-0 {
+    top: calc(#{$nut-height} / 2 - #{$note-size} / 2)
+}
+
+.note-fret-position-1 {
+    top: calc(0 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.note-fret-position-2 {
+    top: calc(1 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.note-fret-position-3 {
+    top: calc(2 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.note-fret-position-4 {
+    top: calc(3 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.note-fret-position-5 {
+    top: calc(4 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+// Finger fret
+
+.finger-fret {
+    background-color: #303030;
+    position: absolute; 
+    display: block;   
+    width: $note-size;
+    height: $note-size;
+    border-radius: calc(#{$note-size} / 2);
+    text-align: center;
+    z-index: 2;
+}
+
+.finger-fret-start-string-E6 {
+    left: calc(0 * #{$string-space} - #{$note-size} / 2);
+    width: calc(5 * #{$string-space} + #{$note-size});
+}
+
+.finger-fret-start-string-A5 {
+    left: calc(1 * #{$string-space} - #{$note-size} / 2);
+    width: calc(4 * #{$string-space} + #{$note-size});
+}
+
+.finger-fret-start-string-D4 {
+    left: calc(2 * #{$string-space} - #{$note-size} / 2);
+    width: calc(3 * #{$string-space} + #{$note-size});
+}
+
+.finger-fret-start-string-G3 {
+    left: calc(3 * #{$string-space} - #{$note-size} / 2);
+    width: calc(2 * #{$string-space} + #{$note-size});
+}
+
+.finger-fret-start-string-B2 {
+    left: calc(4 * #{$string-space} - #{$note-size} / 2);
+    width: calc(1 * #{$string-space} + #{$note-size});
+}
+
+.finger-fret-position-1 {
+    top: calc(0 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.finger-fret-position-2 {
+    top: calc(1 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.finger-fret-position-3 {
+    top: calc(2 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+.finger-fret-position-4 {
+    top: calc(3 * #{$fret-space} + #{$fret-space} / 2 - #{$note-size} / 2 + #{$nut-height})
+}
+
+// playable icons
+.playable-string-icon {
+    position: absolute;
+    display: inline-block;
+    z-index: 4;
+    width: $playable-string-icon-size;
+    top: calc(5 * #{$fret-space} + #{$nut-height} + ( #{$playable-string-icon-size} / 3 ));
+    padding: 0;
+    margin: 0;
+    font-size: $playable-string-icon-size;
+}
+
+.playable-string-icon-position-E6 {
+    left: calc(0 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}
+
+.playable-string-icon-position-A5 {
+    left: calc(1 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}
+
+.playable-string-icon-position-D4 {
+    left: calc(2 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}
+
+.playable-string-icon-position-G3 {
+    left: calc(3 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}
+
+.playable-string-icon-position-B2 {
+    left: calc(4 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}
+
+.playable-string-icon-position-E1 {
+    left: calc(5 * #{$string-space} - #{$playable-string-icon-size} / 2);
+}

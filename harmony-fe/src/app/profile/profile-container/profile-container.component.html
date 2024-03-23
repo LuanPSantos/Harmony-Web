@@ -1,0 +1,55 @@
+<div>
+    <div class="mdl-grid mdl-grid--no-spacing top-spacing">
+        <div class="mdl-cell--4-offset mdl-cell--2-offset-tablet mdl-cell mdl-cell--4-col container">
+
+            <div class="mdl-cell mdl-cell--12-col title">
+                Atualize seus dados pessoais
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+                <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>Nome</mat-label>
+                        <input matInput type="text" formControlName="name">
+                    </mat-form-field>
+
+                    <button type="submit" [disabled]="!userForm.valid" mat-raised-button
+                        color="primary">Atualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdl-grid mdl-grid--no-spacing top-spacing">
+        <div class="mdl-cell--4-offset mdl-cell--2-offset-tablet mdl-cell mdl-cell--4-col container">
+
+            <div class="mdl-cell mdl-cell--12-col title">
+                Atualize suas credenciais
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+                <form [formGroup]="credentialForm" (ngSubmit)="onCredentialFormSubmit()">
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput type="email" formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>Nova senha</mat-label>
+                        <input matInput type="password" formControlName="newPassword">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>Digite sua senha atual</mat-label>
+                        <input matInput type="password" formControlName="oldPassword">
+                    </mat-form-field>
+
+                    <button type="submit" [disabled]="oldPasswordTiped()" mat-raised-button
+                        color="primary">Atualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

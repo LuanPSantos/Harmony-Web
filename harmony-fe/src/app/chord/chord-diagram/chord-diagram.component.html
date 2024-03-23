@@ -1,0 +1,56 @@
+<div class="chrod-diagram-absolute-container shadow" [ngStyle]="getChordDiagramStyles()">
+
+        <mat-icon (click)="hideDiagram()" class="close-button" aria-label="Close">close</mat-icon>
+
+
+    <div class="chord-diagram-container">
+
+        
+
+        <div class="fretboard-container">
+
+            <div class="fretboard">
+
+                <div class="grade">{{chord?.symbol}}</div>
+
+                <!-- note -->
+                <div *ngFor="let note of selectedShape.notes" class="note" [ngClass]="getNotePositionClasses(note)" >
+                    <div>
+                        <div [matTooltip]="getTitleDescription(note)" class="label">{{note.value}}</div>
+                        <div class="background-style" [ngClass]="getNoteColorClasses(note)"></div>
+                    </div>
+                </div>
+
+                <!-- finter fret -->
+                <div *ngIf="selectedShape.isBarre" class="finger-fret" [ngClass]="getFingerFretPositionClasses(selectedShape)"></div>
+
+                <!-- Start fret ref -->
+                <div *ngIf="showStartFretNumberRef(selectedShape)" class="startfret-number-ref" [ngClass]="getStartFretPositionClasses(selectedShape)">{{selectedShape.startFret}}</div>
+
+                <!-- Playable string icons -->
+                <mat-icon *ngFor="let playableIcon of getPlayableIcons(selectedShape)" class="playable-string-icon" [ngClass]="playableIcon.styleClass" aria-label="Playable icon">{{playableIcon.icon}}</mat-icon>
+
+                <!-- estrutura -->
+
+                <div class="nut" [ngClass]="getNutVisibilityClasses()"></div>
+
+                <div class="fretboard-string string-position-E6"></div>
+                <div class="fretboard-string string-position-A5"></div>
+                <div class="fretboard-string string-position-D4"></div>
+                <div class="fretboard-string string-position-G3"></div>
+                <div class="fretboard-string string-position-B2"></div>
+                <div class="fretboard-string string-position-E1"></div>
+
+                <div class="fretboard-fret fret-position-0"></div>
+                <div class="fretboard-fret fret-position-1"></div>
+                <div class="fretboard-fret fret-position-2"></div>
+                <div class="fretboard-fret fret-position-3"></div>
+                <div class="fretboard-fret fret-position-4"></div>
+
+                <div class="fretboard-bottom"></div>
+            </div>
+        </div>        
+    </div>
+    <mat-icon (click)="nextShape()" class="arrow-button arrow-button-next" aria-label="Next shape">keyboard_arrow_right</mat-icon>
+    <mat-icon (click)="backShape()" class="arrow-button arrow-button-back" aria-label="Back shape">keyboard_arrow_left</mat-icon>
+</div>

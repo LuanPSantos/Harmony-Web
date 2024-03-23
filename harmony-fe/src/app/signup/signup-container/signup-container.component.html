@@ -1,0 +1,33 @@
+<div>
+    <div class="mdl-grid mdl-grid--no-spacing top-spacing">
+        <div class="mdl-cell--4-offset-desktop mdl-cell--2-offset-tablet mdl-cell mdl-cell--4-col container">
+
+            <div class="mdl-cell mdl-cell--12-col title">
+                Cadastre um e-mail e senha
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+                <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>Nome</mat-label>
+                        <input matInput type="text" formControlName="name">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput type="email" formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" color="accent">
+                        <mat-label>Senha</mat-label>
+                        <input matInput type="password" formControlName="password">
+                    </mat-form-field>
+
+                    <button type="submit" [disabled]="!userForm.valid" mat-raised-button
+                        color="primary">Próximo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

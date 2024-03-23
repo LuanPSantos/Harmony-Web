@@ -1,0 +1,65 @@
+<div>
+    <div class="mdl-grid mdl-grid--no-spacing top-spacing">
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="mdl-cell mdl-cell--8-col dark-color container">
+            <mat-button-toggle-group [vertical]="toggleGroupIsVertical" name="harmonicFieldType" aria-label="Harmonic Field Type" (change)="changeHarmonicFieldType($event)">
+                <!-- TODO carregar valores dinamicamente -->
+                <mat-button-toggle value="NATURAL_MAJOR">Maior Natural</mat-button-toggle>
+                <mat-button-toggle value="NATURAL_MINOR">Menor Natural</mat-button-toggle>
+                <mat-button-toggle value="HARMONIC_MINOR">Menor Harmônica</mat-button-toggle>
+                <mat-button-toggle value="MELODIC_MINOR">Menor Melódica</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col"></div>
+    </div>
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="mdl-cell mdl-cell--8-col container dark-color">
+            <mat-form-field appearance="fill">
+                <mat-label>Tom</mat-label>
+                <mat-select (selectionChange)="changeTone($event)">
+                    <!-- TODO carregar valores dinamicamente -->
+                    <mat-option value="C">C</mat-option>
+                    <mat-option value="D_FLAT">Db</mat-option>
+                    <mat-option value="D">D</mat-option>
+                    <mat-option value="E_FLAT">Eb</mat-option>
+                    <mat-option value="E">E</mat-option>
+                    <mat-option value="F">F</mat-option>
+                    <mat-option value="G_FLAT">Gb</mat-option>
+                    <mat-option value="G">G</mat-option>
+                    <mat-option value="A_FLAT">Ab</mat-option>
+                    <mat-option value="A">A</mat-option>
+                    <mat-option value="B_FLAT">Bb</mat-option>
+                    <mat-option value="B">B</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col"></div>
+    </div>
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="mdl-cell mdl-cell--8-col container tetrads">
+            <div class="mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell--1-offset-tablet mdl-cell--6-col-tablet mdl-cell--8-col-desktop mdl-cell--3-offset-desktop title" *ngIf="(triads$ | async).length != 0">
+                    <span class="message" ><strong>Tríades</strong></span>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <app-chord [chord]="chord" [index]="i" *ngFor="let chord of (triads$ | async); let i= index"></app-chord>
+                </div>
+            </div>
+            <div class="mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell--1-offset-tablet mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-cell--3-offset-desktop title" *ngIf="(tetrads$ | async).length != 0">
+                    <span class="message" ><strong>Tétrades</strong></span>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col" *ngIf="(tetrads$ | async).length == 0">
+                    <span class="message" >Selecione o <strong>Campo Harmônico</strong> e o <strong>Tom</strong></span>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <app-chord [chord]="chord" [index]="(i + 10)" *ngFor="let chord of (tetrads$ | async); let i= index"></app-chord>
+                </div>
+            </div>
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        </div>
+    </div>
+</div>
+

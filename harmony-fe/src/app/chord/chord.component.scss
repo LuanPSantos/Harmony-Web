@@ -1,0 +1,17 @@
+.chord-container {
+    position: relative;
+    display: inline-block;
+}
+
+span {
+    font-size: x-large;
+    display: inline-block;
+    padding: 8px;
+    color: #303030;
+    line-height: 1.5;
+}
+
+span:hover {
+    color: #c2185b;
+    cursor: pointer;
+}

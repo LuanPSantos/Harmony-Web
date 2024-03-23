@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    tools {
+        gradle "gradle"
+        jdk "java8"
+    }
+
+    stages {
+        stage("Build") {
+            steps {
+                sh "gradle clean build -x test"
+            }
+        }
+
+        stage("Test") {
+            steps {
+                sh "gradle test"
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                sh 'mv build/libs/harmony*.jar ./harmony.jar'
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "aws-harmony-harmonic-fields-server",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: "harmony.jar",
+                                    removePrefix: "",
+                                    remoteDirectory: "",
+                                    execCommand: "sudo kill -9 \$(cat shutdown.pid) && echo \"sudo java -Dspring.profiles.active=prod -jar harmony.jar\" | at now + 1 minute"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+services:
+        harmony-fe:
+                build:
+                        context: .
+                        dockerfile: Dockerfile
+                networks:
+                        - harmony-network
+
+        harmonic-field:
+                build:
+                        context: ../harmony-backend
+                        dockerfile: Dockerfile
+                networks:
+                        - harmony-network
+
+        reverse-proxy:
+                image: nginx:1.25.2-alpine
+                volumes:
+                        - ./data/nginx:/etc/nginx/conf.d       
+                        - ./data/certbot/conf:/etc/letsencrypt
+                        - ./data/certbot/www:/var/www/certbot               
+                ports:
+                        - "80:80"
+                        - "443:443"
+                networks:
+                        - harmony-network
+                depends_on:
+                        - harmony-fe
+                        - harmonic-field
+        certbot:
+                image: certbot/certbot
+                volumes:
+                        - ./data/certbot/conf:/etc/letsencrypt
+                        - ./data/certbot/www:/var/www/certbot
+                depends_on:
+                        - reverse-proxy
+        
+networks:
+        harmony-network:
+                driver: bridge

@@ -1,0 +1,168 @@
+{
+  "type": "NATURAL_MINOR",
+  "name": "Menor Natural",
+  "tetrads": [
+    "<I>m7",
+    "<II>m7(b5)",
+    "<III>7M",
+    "<IV>m7",
+    "<V>m7",
+    "<VI>7M",
+    "<VII>7"
+  ],
+  "triads": [
+    "<I>m",
+    "<II>°",
+    "<III>",
+    "<IV>m",
+    "<V>m",
+    "<VI>",
+    "<VII>"
+  ],
+  "scales": [
+    {
+      "tone": "C",
+      "notes": [
+        {"fundamental": "C", "grade": "<I>"},
+        {"fundamental": "D", "grade": "<II>"},
+        {"fundamental": "Eb", "grade": "<III>"},
+        {"fundamental": "F", "grade": "<IV>"},
+        {"fundamental": "G", "grade": "<V>"},
+        {"fundamental": "Ab", "grade": "<VI>"},
+        {"fundamental": "Bb", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "Db",
+      "notes": [
+        {"fundamental": "Db", "grade": "<I>"},
+        {"fundamental": "Eb", "grade": "<II>"},
+        {"fundamental": "Fb", "grade": "<III>"},
+        {"fundamental": "Gb", "grade": "<IV>"},
+        {"fundamental": "Ab", "grade": "<V>"},
+        {"fundamental": "Bbb", "grade": "<IV>"},
+        {"fundamental": "Cb", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "D",
+      "notes": [
+        {"fundamental": "D", "grade": "<I>"},
+        {"fundamental": "E", "grade": "<II>"},
+        {"fundamental": "F", "grade": "<III>"},
+        {"fundamental": "G", "grade": "<IV>"},
+        {"fundamental": "A", "grade": "<V>"},
+        {"fundamental": "Bb", "grade": "<IV>"},
+        {"fundamental": "C", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "Eb",
+      "notes": [
+        {"fundamental": "Eb", "grade": "<I>"},
+        {"fundamental": "F", "grade": "<II>"},
+        {"fundamental": "Gb", "grade": "<III>"},
+        {"fundamental": "Ab", "grade": "<IV>"},
+        {"fundamental": "Bb", "grade": "<V>"},
+        {"fundamental": "Cb", "grade": "<VI>"},
+        {"fundamental": "Db", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "E",
+      "notes": [
+        {"fundamental": "E", "grade": "<I>"},
+        {"fundamental": "F#", "grade": "<II>"},
+        {"fundamental": "G", "grade": "<III>"},
+        {"fundamental": "A", "grade": "<IV>"},
+        {"fundamental": "B", "grade": "<V>"},
+        {"fundamental": "C", "grade": "<VI>"},
+        {"fundamental": "D", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "F",
+      "notes": [
+        {"fundamental": "F", "grade": "<I>"},
+        {"fundamental": "G", "grade": "<II>"},
+        {"fundamental": "Ab", "grade": "<III>"},
+        {"fundamental": "Bb", "grade": "<IV>"},
+        {"fundamental": "C", "grade": "<V>"},
+        {"fundamental": "Db", "grade": "<VI>"},
+        {"fundamental": "Eb", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "Gb",
+      "notes": [
+        {"fundamental": "Gb", "grade": "<I>"},
+        {"fundamental": "Ab", "grade": "<II>"},
+        {"fundamental": "Bbb", "grade": "<III>"},
+        {"fundamental": "Cb", "grade": "<IV>"},
+        {"fundamental": "Db", "grade": "<V>"},
+        {"fundamental": "Ebb", "grade": "<VI>"},
+        {"fundamental": "Fb", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "G",
+      "notes": [
+        {"fundamental": "G", "grade": "<I>"},
+        {"fundamental": "A", "grade": "<II>"},
+        {"fundamental": "Bb", "grade": "<III>"},
+        {"fundamental": "C", "grade": "<IV>"},
+        {"fundamental": "D", "grade": "<V>"},
+        {"fundamental": "Eb", "grade": "<VI>"},
+        {"fundamental": "F", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "Ab",
+      "notes": [
+        {"fundamental": "Ab", "grade": "<I>"},
+        {"fundamental": "Bb", "grade": "<II>"},
+        {"fundamental": "Cb", "grade": "<III>"},
+        {"fundamental": "Db", "grade": "<IV>"},
+        {"fundamental": "Eb", "grade": "<V>"},
+        {"fundamental": "Fb", "grade": "<VI>"},
+        {"fundamental": "Gb", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "A",
+      "notes": [
+        {"fundamental": "A", "grade": "<I>"},
+        {"fundamental": "B", "grade": "<II>"},
+        {"fundamental": "C", "grade": "<III>"},
+        {"fundamental": "D", "grade": "<IV>"},
+        {"fundamental": "E", "grade": "<V>"},
+        {"fundamental": "F", "grade": "<VI>"},
+        {"fundamental": "G", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "Bb",
+      "notes": [
+        {"fundamental": "Bb", "grade": "<I>"},
+        {"fundamental": "C", "grade": "<II>"},
+        {"fundamental": "Db", "grade": "<III>"},
+        {"fundamental": "Eb", "grade": "<IV>"},
+        {"fundamental": "F", "grade": "<V>"},
+        {"fundamental": "Gb", "grade": "<VI>"},
+        {"fundamental": "Ab", "grade": "<VII>"}
+      ]
+    },
+    {
+      "tone": "B",
+      "notes": [
+        {"fundamental": "B", "grade": "<I>"},
+        {"fundamental": "C#", "grade": "<II>"},
+        {"fundamental": "D", "grade": "<III>"},
+        {"fundamental": "E", "grade": "<IV>"},
+        {"fundamental": "F#", "grade": "<V>"},
+        {"fundamental": "G", "grade": "<VI>"},
+        {"fundamental": "A", "grade": "<VII>"}
+      ]
+    }
+  ]
+}

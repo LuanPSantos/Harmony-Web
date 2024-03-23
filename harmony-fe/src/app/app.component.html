@@ -1,0 +1,41 @@
+<div class="mdl-layout">
+    <main class="mdl-layout__content">
+        <mat-toolbar color="primary">
+
+            <span>Harmony</span>
+            <span class="horizontal-spacer"></span>
+
+
+            <button class="menu-button" mat-raised-button routerLink="/app/harmonic-field">Campo Harmônico</button>
+
+            <!-- <button *ngIf="(isAuthenticated$ | async) == false" class="menu-button" mat-raised-button
+                routerLink="/app/signup">Criar conta</button>
+            <button *ngIf="(isAuthenticated$ | async) == false" class="menu-button" mat-raised-button
+                routerLink="/app/auth">Entrar</button> -->
+
+            <!-- <button *ngIf="(isAuthenticated$ | async) == true" class="menu-button" mat-raised-button
+                routerLink="/app/profile">Perfil</button>
+            <button *ngIf="(isAuthenticated$ | async) == true" class="menu-button" mat-raised-button
+                routerLink="/app/auth">Sair</button> -->
+
+        </mat-toolbar>
+
+        <div class="page-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--2-col"></div>
+            <div class="mdl-cell mdl-cell--8-col footer">
+                <span>Delevoped with </span>
+                <mat-icon class="heart-icon" aria-label="Example home icon">favorite</mat-icon>
+                <span> by <a class="link" target="_blank" href="https://www.linkedin.com/in/x-luan-santos-x/">Luan
+                        Santos</a></span>
+            </div>
+            <div class="mdl-cell mdl-cell--2-col"></div>
+        </div>
+
+        <app-loader *ngIf="(isLoading$ | async)"></app-loader>
+        
+    </main>
+</div>

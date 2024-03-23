@@ -1,14 +1,14 @@
 services:
-        harmony-fe:
+        harmony-frontend:
                 build:
-                        context: .
+                        context: harmony-fe
                         dockerfile: Dockerfile
                 networks:
                         - harmony-network
 
-        harmonic-field:
+        harmony-backend:
                 build:
-                        context: ../harmony-backend
+                        context: harmony-backend
                         dockerfile: Dockerfile
                 networks:
                         - harmony-network
@@ -25,16 +25,8 @@ services:
                 networks:
                         - harmony-network
                 depends_on:
-                        - harmony-fe
-                        - harmonic-field
-        certbot:
-                image: certbot/certbot
-                volumes:
-                        - ./data/certbot/conf:/etc/letsencrypt
-                        - ./data/certbot/www:/var/www/certbot
-                command: certonly
-                depends_on:
-                        - reverse-proxy
+                        - harmony-frontend
+                        - harmony-backend
         
 networks:
         harmony-network:

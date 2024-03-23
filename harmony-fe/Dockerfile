@@ -17,6 +17,6 @@ COPY frontend-nginx.conf  /etc/nginx/conf.d/nginx.conf
 
 COPY --from=Builder /app/dist/harmony-fe .
 
-EXPOSE 4200
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

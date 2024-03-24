@@ -3,6 +3,8 @@ services:
                 build:
                         context: harmony-fe
                         dockerfile: Dockerfile
+                ports:
+                        - "4200:4200"
                 networks:
                         - harmony-network
 
@@ -10,23 +12,10 @@ services:
                 build:
                         context: harmony-backend
                         dockerfile: Dockerfile
-                networks:
-                        - harmony-network
-
-        reverse-proxy:
-                image: nginx:1.25.2-alpine
-                volumes:
-                        - ./data/nginx:/etc/nginx/conf.d       
-                        - ./data/certbot/conf:/etc/letsencrypt
-                        - ./data/certbot/www:/var/www/certbot               
                 ports:
-                        - "80:80"
-                        - "443:443"
+                        - "8080:8080"
                 networks:
                         - harmony-network
-                depends_on:
-                        - harmony-frontend
-                        - harmony-backend
         
 networks:
         harmony-network:

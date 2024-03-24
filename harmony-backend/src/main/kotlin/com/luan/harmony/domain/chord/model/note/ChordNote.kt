@@ -2,7 +2,7 @@ package com.luan.harmony.domain.chord.model.note
 
 import com.luan.harmony.domain.chord.model.note.Title.UNNAMED
 
-open class ChordNote constructor(
+open class ChordNote(
         value: Value,
         position: Position,
         val title: Title = UNNAMED
